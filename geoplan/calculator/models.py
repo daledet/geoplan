@@ -10,4 +10,5 @@ class Project(models.Model):
 
 class Well(models.Model):
     well_name = models.CharField(max_length=30)
+    well_type = models.CharField(max_length=30)
     well_location = models.CharField(max_length=30)
