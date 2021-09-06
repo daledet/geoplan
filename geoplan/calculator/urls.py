@@ -7,5 +7,6 @@ urlpatterns = [
     path('add', views.addition, name='add'),
     path('sub', views.subtraction, name='sub'),
     path('multi', views.multiplication, name='multi'),
-    path('div', views.division, name='div')
+    path('div', views.division, name='div'),
+    path('project', views.project, name='project')
 ]

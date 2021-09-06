@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3 col-md-3 col-lg-3 ">
+        <label for="projectName" class="form-label">Project Name</label>
+        <input type="text" class="form-control" id="projectName">
+    </div>
+    <div class="mb-3 col-md-3 col-lg-3 ">
+        <label for="projectLocation" class="form-label">Project Location</label>
+        <input type="text" class="form-control" id="projectLocation">
+    </div>
+    <div class="mb-3 col-md-3 col-lg-3 ">
+        <label for="projectOperator" class="form-label">Operator</label>
+        <input type="text" class="form-control" id="projectOperator">
+    </div>
+    <div class="mb-3 col-md-3 col-lg-3 ">
+        <label for="projectStartDate" class="form-label">Start Date</label>
+        <input type="text" class="form-control" id="projectStartDate">
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+{% endblock %}
