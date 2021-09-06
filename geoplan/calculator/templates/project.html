@@ -20,8 +20,7 @@
   }
   ```
 -->
-<form class="space-y-8 divide-y divide-gray-200 m-2" action="{% url 'project' %}" method="POST">
-    {% csrf_token %}
+<form class="space-y-8 divide-y divide-gray-200 m-2">
     <div class="space-y-8 divide-y divide-gray-200">
         <div class="pt-8">
             <div>
@@ -31,64 +30,57 @@
 
             </div>
             <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <!-- <div class="sm:col-span-3">
+                <div class="sm:col-span-3">
                     <label for="project-name" class="block text-sm font-medium text-gray-700">
                         Project Name
-                    </label> -->
-
-                {{ form }}
-
-                <!-- <div class="mt-1">
-                        <input type="text" name="project-name" id="project-name"
+                    </label>
+                    <div class="mt-1">
+                        <input type="text" name="project-name" id="project-name" autocomplete="given-name"
                             class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                    </div> -->
-            </div>
+                    </div>
+                </div>
 
-            <!-- <div class="sm:col-span-3">
-                <label for="project-location" class="block text-sm font-medium text-gray-700">
-                    Project Location
-                </label>
-                <div class="mt-1">
-                    <input type="text" name="project-location" id="project-location"
-                        class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                <div class="sm:col-span-3">
+                    <label for="project-location" class="block text-sm font-medium text-gray-700">
+                        Project Location
+                    </label>
+                    <div class="mt-1">
+                        <input type="text" name="project-location" id="project-location" autocomplete="family-name"
+                            class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                <div class="sm:col-span-3">
+                    <label for="project-operator" class="block text-sm font-medium text-gray-700">
+                        Operator
+                    </label>
+                    <div class="mt-1">
+                        <input type="text" name="project-operator" id="project-operator" autocomplete="given-name"
+                            class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                    <label for="project-start-date" class="block text-sm font-medium text-gray-700">
+                        Start Date
+                    </label>
+                    <div class="mt-1">
+                        <input type="text" name="project-start-date" id="project-start-date" autocomplete="family-name"
+                            class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-            <div class="sm:col-span-3">
-                <label for="project-operator" class="block text-sm font-medium text-gray-700">
-                    Operator
-                </label>
-                <div class="mt-1">
-                    <input type="text" name="project-operator" id="project-operator"
-                        class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                </div>
-            </div>
-
-            <div class="sm:col-span-3">
-                <label for="project-start-date" class="block text-sm font-medium text-gray-700">
-                    Start Date
-                </label>
-                <div class="mt-1">
-                    <input type="text" name="project-start-date" id="project-start-date"
-                        class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                </div>
+        <div class="pt-5">
+            <div class="flex justify-end">
+                <button type="submit"
+                    class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    Save
+                </button>
             </div>
         </div>
-    </div> -->
-
-            <input type="submit" value="submit">
-
-
-            <!-- <div class="pt-5">
-                <div class="flex justify-end">
-                    <button type="submit"
-                        class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                        Save
-                    </button>
-                </div>
-            </div>
-        </div> -->
+    </div>
 </form>
 
 {% endblock %}
