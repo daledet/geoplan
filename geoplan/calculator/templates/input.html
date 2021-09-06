@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="add" method="POST" class="space-y-8 divide-y divide-gray-200 m-2">
+<form action="{% url 'calculator' %}" method="POST" class="space-y-8 divide-y divide-gray-200 m-2">
     {% csrf_token %}
     <div class="space-y-8 divide-y divide-gray-200">
         <div class="pt-8">

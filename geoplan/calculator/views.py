@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Project
+from .forms import ProjectForm
 
 
 def home(request):
@@ -7,76 +9,25 @@ def home(request):
 
 
 def project(request):
-    return render(request, 'project.html', {})
-
-
-def index(request):
-    return render(request, "input.html")
-
-
-def addition(request):
-
-    num1 = request.POST['num1']
-    num2 = request.POST['num2']
-
-    if num1.isdigit() and num2.isdigit():
-        a = int(num1)
-        b = int(num2)
-        res = a + b
-
-        return render(request, "result.html", {"result": res})
-    else:
-        res = "Only digits are allowed"
-        return render(request, "result.html", {"result": res})
-
-
-def subtraction(request):
-
-    num1 = request.POST['num1']
-    num2 = request.POST['num2']
-
-    if num1.isdigit() and num2.isdigit():
-        a = int(num1)
-        b = int(num2)
-        res = a - b
-
-        return render(request, "result.html", {"result": res})
-    else:
-        res = "Only digits are allowed"
-        return render(request, "result.html", {"result": res})
-
-
-def multiplication(request):
-
-    num1 = request.POST['num1']
-    num2 = request.POST['num2']
-
-    if num1.isdigit() and num2.isdigit():
-        a = int(num1)
-        b = int(num2)
-        res = a * b
-
-        return render(request, "result.html", {"result": res})
-    else:
-        res = "Only digits are allowed"
-        return render(request, "result.html", {"result": res})
-
-
-def division(request):
-
-    num1 = request.POST['num1']
-    num2 = request.POST['num2']
-
-    if num1.isdigit() and num2.isdigit():
-        a = int(num1)
-        b = int(num2)
-
-        if b == 0:
-            res = "Zero divide error"
-            return render(request, "result.html", {"result": res})
+    if request.method == "POST":
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
         else:
-            res = a / b
-            return render(request, "result.html", {"result": res})
-    else:
-        res = "Only digits are allowed"
-        return render(request, "result.html", {"result": res})
+            # for debugging only, handle according to your need
+            print("Invalid input from user")
+
+    form = ProjectForm()
+    all_items = Project.objects.all()
+
+    return render(request, 'project.html', {'form': form, 'all_items': all_items})
+
+
+def input(request):
+    if request.method == "POST":
+        num1 = request.POST['num1']
+        num2 = request.POST['num2']
+
+        return render(request, "input.html", {'num1': num1})
+
+    return render(request, "input.html", {})
